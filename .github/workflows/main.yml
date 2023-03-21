@@ -9,10 +9,9 @@ jobs:
       - uses: Rxinui/ssh-deploy-repo-action@v1
         with:
           # Required
-          ssh-user: root
-          ssh-password: ${{ secrets.IIMACTIONS }}
-          ssh-domain: ${{ secrets.IIMACTIONSDOMAINE }}
-          ssh_host_key: ${{ secrets.HOSTKEYS }}
+          ssh-user: ${{ secrets.USER }}
+          ssh-password: ${{ secrets.PASSWORD }}
+          ssh-domain: ${{ secrets.DOMAINE }}
           # Optional
           git-clone-by: ssh
           target-branch: main
