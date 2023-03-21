@@ -1,7 +1,7 @@
 name: Deployment of current GitHub repo on a server through SSH
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
 jobs:
   deploy:
     runs-on: ubuntu-20.04
@@ -13,6 +13,6 @@ jobs:
           ssh-password: ${{ secrets.PASSWORD }}
           ssh-domain: ${{ secrets.DOMAINE }}
           # Optional
-          git-clone-by: ssh
+          git-clone-by: https
           target-branch: main
           target-directory: /var/www/html/adrien24/
