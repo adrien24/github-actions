@@ -10,10 +10,10 @@ jobs:
         with:
           # Required
           ssh-user: root
-          ssh-password: ${{ secrets.iimActions }}
-          ssh-domain: ${{ secrets.iimActionsDomaine }}
-          known-hosts: ${{ secrets.hostkeys }}
+          ssh-password: ${{ secrets.IIMACTIONS }}
+          ssh-domain: ${{ secrets.IIMACTIONSDOMAINE }}
+          known-hosts: ${{ secrets.HOSTKEYS }}
           # Optional
           git-clone-by: ssh
           target-branch: main
-          target-directory: /var/www/html/pgrimaud/
+          target-directory: /var/www/html/adrien24/
