@@ -12,7 +12,6 @@ jobs:
           ssh-user: root
           ssh-password: ${{ secrets.IIMACTIONS }}
           ssh-domain: ${{ secrets.IIMACTIONSDOMAINE }}
-          known-hosts: ${{ secrets.HOSTKEYS }}
           # Optional
           git-clone-by: ssh
           target-branch: main
