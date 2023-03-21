@@ -14,5 +14,5 @@ jobs:
           ssh-domain: ${{ secrets.iimActionsDomaine }}
           # Optional
           git-clone-by: ssh
-          target-branch: develop
+          target-branch: main
           target-directory: /var/www/html/pgrimaud/
