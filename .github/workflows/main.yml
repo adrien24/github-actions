@@ -22,7 +22,7 @@ on: [push]
 jobs:
 
   build:
-    name: Build
+    name: Builde
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
