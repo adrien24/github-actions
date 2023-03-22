@@ -1,18 +1,37 @@
-name: Deployment of current GitHub repo on a server through SSH
-on:
-  push:
-    branches: [main]
+# name: Deployment of current GitHub repo on a server through SSH
+# on:
+#   push:
+#     branches: [main]
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - uses: Rxinui/ssh-deploy-repo-action@v1
+#         with:
+#           # Required
+#           ssh-user: ${{ secrets.USER }}
+#           ssh-password: ${{ secrets.PASSWORD }}
+#           ssh-domain: ${{ secrets.DOMAINE }}
+#           # Optional
+#           git-clone-by: https
+#           target-branch: main
+#           target-directory: /var/www/html/adrien24/
+
+name: scp files
+on: [push]
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
     steps:
-      - uses: Rxinui/ssh-deploy-repo-action@v1
-        with:
-          # Required
-          ssh-user: ${{ secrets.USER }}
-          ssh-password: ${{ secrets.PASSWORD }}
-          ssh-domain: ${{ secrets.DOMAINE }}
-          # Optional
-          git-clone-by: https
-          target-branch: main
-          target-directory: /var/www/html/adrien24/
+    - uses: actions/checkout@master
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.DOMAINE }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "index.html"
+        target: ${{ secrets.TARGET }}
